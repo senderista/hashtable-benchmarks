@@ -8,7 +8,7 @@
 
 plugins {
     id 'java-library'
-    id "me.champeau.gradle.jmh" version "0.4.7"
+    id "me.champeau.gradle.jmh" version "0.5.0"
     id 'com.adarshr.test-logger' version '1.5.0'
 }
 
@@ -43,6 +43,8 @@ sourceSets {
 
 test {
     useJUnitPlatform()
+    minHeapSize = "1024m"
+    maxHeapSize = "2048m"
 }
 
 tasks.withType(JavaCompile) {
