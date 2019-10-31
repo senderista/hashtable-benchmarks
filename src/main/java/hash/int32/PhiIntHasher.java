@@ -1,6 +1,7 @@
 package hash.int32;
 
 public class PhiIntHasher implements IntHasher {
+    public static final String NAME = "hash.int32.PhiIntHasher";
     // https://raw.githubusercontent.com/vigna/fastutil/master/src/it/unimi/dsi/fastutil/HashCommon.java
     private static final int INT_PHI = 0x9e3779b9;
     private static final int INV_INT_PHI = 0x144cbc89;

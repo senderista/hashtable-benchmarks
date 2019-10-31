@@ -22,6 +22,9 @@ dependencies {
     // QuickCheck
     testCompile 'com.pholser:junit-quickcheck-core:0.9'
     testCompile 'com.pholser:junit-quickcheck-generators:0.9'
+    // JMH
+    jmh 'org.openjdk.jmh:jmh-core:1.21'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:1.21'
 }
 
 repositories {

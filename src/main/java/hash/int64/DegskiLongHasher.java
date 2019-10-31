@@ -1,6 +1,7 @@
 package hash.int64;
 
 public class DegskiLongHasher implements LongHasher {
+    public static final String NAME = "hash.int64.DegskiLongHasher";
     // https://gist.github.com/degski/6e2069d6035ae04d5d6f64981c995ec2
     @Override
     public long hash(long x) {

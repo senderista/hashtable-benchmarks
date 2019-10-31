@@ -1,6 +1,7 @@
 package hash.int32;
 
 public class Prospector3RoundIntHasher implements IntHasher {
+    public static final String NAME = "hash.int32.Prospector3RoundIntHasher";
     // https://github.com/skeeto/hash-prospector#three-round-functions
     @Override
     public int hash(int x) {

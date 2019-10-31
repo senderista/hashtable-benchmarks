@@ -1,6 +1,7 @@
 package hash.int64;
 
 public class WangLongHasher implements LongHasher {
+    public static final String NAME = "hash.int64.WangLongHasher";
     // https://naml.us/post/inverse-of-a-hash-function/
     @Override
     public long hash(long x) {

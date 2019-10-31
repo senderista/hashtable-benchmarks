@@ -1,6 +1,7 @@
 package hash.int64;
 
 public class PhiLongHasher implements LongHasher {
+    public static final String NAME = "hash.int64.PhiLongHasher";
     // https://raw.githubusercontent.com/vigna/fastutil/master/src/it/unimi/dsi/fastutil/HashCommon.java
     private static final long LONG_PHI = 0x9e3779b97f4a7c15l;
     private static final long INV_LONG_PHI = 0xf1de83e19937733dL;

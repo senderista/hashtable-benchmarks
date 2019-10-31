@@ -1,6 +1,7 @@
 package hash.int32;
 
 public class H2IntHasher implements IntHasher {
+    public static final String NAME = "hash.int32.H2IntHasher";
     // https://github.com/h2database/h2database
     @Override
     public int hash(int x) {

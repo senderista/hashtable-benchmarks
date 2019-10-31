@@ -1,6 +1,7 @@
 package hash.int64;
 
 public class Murmur3LongHasher implements LongHasher {
+    public static final String NAME = "hash.int64.Murmur3LongHasher";
     // Murmur3 64-bit finalizer (https://github.com/aappleby/smhasher/wiki/MurmurHash3)
     @Override
     public long hash(long x) {
