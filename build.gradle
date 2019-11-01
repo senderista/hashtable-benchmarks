@@ -53,3 +53,8 @@ test {
 tasks.withType(JavaCompile) {
     options.compilerArgs += ["-Xlint:unchecked"]
 }
+
+jmh {
+    // enable assertions
+    jvmArgsAppend = '-ea'
+}

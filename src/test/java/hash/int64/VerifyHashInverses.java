@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
-import java.util.stream.LongStream;
+
+import java.lang.reflect.InvocationTargetException;
 
 class VerifyHashInverses {
 
@@ -23,13 +24,12 @@ class VerifyHashInverses {
     };
 
     @Test
-    void test() throws InstantiationException, IllegalAccessException, NoSuchMethodException {
+    void test()
+            throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         for (Class<?> cls : classes) {
-            LongHasher hasher = (LongHasher) cls.newInstance();
-            new Random(SEED).longs(SAMPLE_SIZE).forEach(
-                i -> assertEquals(i, hasher.unhash(hasher.hash(i)),
-                    String.format("%s: inverting hash for value %d", cls.getName(), i))
-            );
+            LongHasher hasher = (LongHasher) cls.getDeclaredConstructor().newInstance();
+            new Random(SEED).longs(SAMPLE_SIZE).forEach(i -> assertEquals(i, hasher.unhash(hasher.hash(i)),
+                    String.format("%s: inverting hash for value %d", cls.getName(), i)));
             // all current hash functions map 0 to itself
             if (!cls.equals(IdentityLongHasher.class)) {
                 assertThrows(IllegalArgumentException.class, () -> hasher.hash(0L), cls.getName());

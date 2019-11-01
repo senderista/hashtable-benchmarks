@@ -12,4 +12,10 @@ public class IdentityIntHasher implements IntHasher {
     public int unhash(int x) {
         return x;
     }
+
+    @Override
+    public IntHasher cloneHasher() {
+        // stateless
+        return new IdentityIntHasher();
+    }
 }

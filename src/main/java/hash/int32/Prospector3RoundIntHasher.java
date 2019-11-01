@@ -32,4 +32,10 @@ public class Prospector3RoundIntHasher implements IntHasher {
         x ^= x >>> 17;
         return x;
     }
+
+    @Override
+    public IntHasher cloneHasher() {
+        // stateless
+        return new Prospector3RoundIntHasher();
+    }
 }

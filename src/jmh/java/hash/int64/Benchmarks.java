@@ -17,9 +17,14 @@ import java.security.SecureRandom;
 @BenchmarkMode(Mode.AverageTime)
 public class Benchmarks {
     private static final Random RND = new SecureRandom();
-    @Param({ IdentityLongHasher.NAME, PhiLongHasher.NAME, DegskiLongHasher.NAME, Murmur3LongHasher.NAME,
-            Variant13LongHasher.NAME, WangLongHasher.NAME,
-            // SpeckLongHasher.NAME,
+    @Param({
+        IdentityLongHasher.NAME,
+        PhiLongHasher.NAME,
+        DegskiLongHasher.NAME,
+        Murmur3LongHasher.NAME,
+        Variant13LongHasher.NAME,
+        WangLongHasher.NAME,
+        // SpeckLongHasher.NAME,
     })
     private String hasherClassName;
     private LongHasher hasher;

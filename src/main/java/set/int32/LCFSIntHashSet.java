@@ -23,6 +23,7 @@ import java.util.Arrays;
  * @author tdbaker
  */
 public class LCFSIntHashSet extends LPIntHashSet {
+    public static final String NAME = "set.int32.LCFSIntHashSet";
 
     public LCFSIntHashSet(int maxEntries, double loadFactor, IntHasher hasher) {
         super(maxEntries, loadFactor, hasher);
@@ -30,6 +31,18 @@ public class LCFSIntHashSet extends LPIntHashSet {
 
     public LCFSIntHashSet(int maxEntries, double loadFactor) {
         super(maxEntries, loadFactor);
+    }
+
+    public LCFSIntHashSet(LCFSIntHashSet other) throws CloneNotSupportedException {
+        super(other);
+    }
+
+    /**
+     * Return deep copy of the table.
+     */
+    @Override
+    public IntSet cloneSet() throws CloneNotSupportedException {
+        return new LCFSIntHashSet(this);
     }
 
     /**

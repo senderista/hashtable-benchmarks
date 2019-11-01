@@ -18,8 +18,12 @@ public class VerifyHashSet {
 
     private static final int SAMPLE_SIZE_LIMIT = 1 << 20;
 
-    private static final Class<?>[] classes = { BLPIntHashSet.class, LCFSIntHashSet.class, LPIntHashSet.class,
-            RHIntHashSet.class, };
+    private static final Class<?>[] classes = {
+        BLPIntHashSet.class,
+        LCFSIntHashSet.class,
+        LPIntHashSet.class,
+        RHIntHashSet.class,
+    };
 
     @Property
     public void testSequentialKeys(@InRange(minInt = 0, maxInt = SAMPLE_SIZE_LIMIT) int sampleSize,

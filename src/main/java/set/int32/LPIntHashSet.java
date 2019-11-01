@@ -19,6 +19,7 @@ import java.util.Arrays;
  * @author tdbaker
  */
 public class LPIntHashSet implements IntSet {
+    public static final String NAME = "set.int32.LPIntHashSet";
 
     protected final int[] arr;
     protected int size = 0;
@@ -34,6 +35,19 @@ public class LPIntHashSet implements IntSet {
 
     public LPIntHashSet(int maxEntries, double loadFactor) {
         this(maxEntries, loadFactor, new Murmur3IntHasher());
+    }
+
+    public LPIntHashSet(LPIntHashSet other) {
+        this.arr = other.arr.clone();
+        this.size = other.size;
+        this.hasher = other.hasher.cloneHasher();
+    }
+
+    /**
+     * Return deep copy of the table.
+     */
+    public IntSet cloneSet() throws CloneNotSupportedException {
+        return new LPIntHashSet(this);
     }
 
     /**

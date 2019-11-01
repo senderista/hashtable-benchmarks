@@ -28,4 +28,10 @@ public class Murmur3IntHasher implements IntHasher {
         x ^= x >>> 16;
         return x;
     }
+
+    @Override
+    public IntHasher cloneHasher() {
+        // stateless
+        return new Murmur3IntHasher();
+    }
 }

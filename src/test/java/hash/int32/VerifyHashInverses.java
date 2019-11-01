@@ -5,7 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.Random;
-import java.util.stream.IntStream;
+
+import java.lang.reflect.InvocationTargetException;
 
 class VerifyHashInverses {
 
@@ -18,7 +19,7 @@ class VerifyHashInverses {
     };
 
     @Test
-    void test() throws InstantiationException, IllegalAccessException, NoSuchMethodException {
+    void test() throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         for (Class<?> cls : classes) {
             IntHasher hasher = (IntHasher) cls.getDeclaredConstructor().newInstance();
             new Random(SEED).ints(SAMPLE_SIZE).forEach(i -> assertEquals(i, hasher.unhash(hasher.hash(i)),

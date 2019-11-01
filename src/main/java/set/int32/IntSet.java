@@ -1,6 +1,6 @@
 package set.int32;
 
-public interface IntSet {
+public interface IntSet extends Cloneable {
 
    /**
      * Query the number of elements in the table.
@@ -37,5 +37,10 @@ public interface IntSet {
      * Remove all elements from the table.
      */
     public void clear();
+
+    /**
+     * Return deep copy of the table.
+     */
+    public IntSet cloneSet() throws CloneNotSupportedException;
 
 }

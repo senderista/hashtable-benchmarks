@@ -24,8 +24,14 @@ public class SpeckIntHasher implements IntHasher {
     public int hash(int x) {
         return encryptor.processBlock(x);
     }
+
     @Override
     public int unhash(int x){
         return decryptor.processBlock(x);
+    }
+
+    @Override
+    public IntHasher cloneHasher() {
+        // NYI
     }
 }

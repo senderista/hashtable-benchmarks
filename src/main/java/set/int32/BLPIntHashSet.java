@@ -20,6 +20,7 @@ import java.util.Arrays;
  * @author tdbaker
  */
 public class BLPIntHashSet extends LPIntHashSet {
+    public static final String NAME = "set.int32.BLPIntHashSet";
 
     public BLPIntHashSet(int maxEntries, double loadFactor, IntHasher hasher) {
         super(maxEntries, loadFactor, hasher);
@@ -27,6 +28,18 @@ public class BLPIntHashSet extends LPIntHashSet {
 
     public BLPIntHashSet(int maxEntries, double loadFactor) {
         super(maxEntries, loadFactor);
+    }
+
+    public BLPIntHashSet(BLPIntHashSet other) throws CloneNotSupportedException {
+        super(other);
+    }
+
+    /**
+     * Return deep copy of the table.
+     */
+    @Override
+    public IntSet cloneSet() throws CloneNotSupportedException {
+        return new BLPIntHashSet(this);
     }
 
     /**

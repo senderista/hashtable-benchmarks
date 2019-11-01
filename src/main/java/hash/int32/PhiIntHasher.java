@@ -25,4 +25,10 @@ public class PhiIntHasher implements IntHasher {
         x *= INV_INT_PHI;
         return x;
     }
+
+    @Override
+    public IntHasher cloneHasher() {
+        // stateless
+        return new PhiIntHasher();
+    }
 }
