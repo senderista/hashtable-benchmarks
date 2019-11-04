@@ -7,7 +7,7 @@ public interface LongSet {
      *
      * @return the number of elements in the table
      */
-    public long size();
+    public int size();
 
     /**
      * Query the table for a value.

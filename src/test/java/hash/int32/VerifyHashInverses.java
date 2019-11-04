@@ -13,9 +13,14 @@ class VerifyHashInverses {
     private static final int SAMPLE_SIZE = 1 << 10;
     private static final long SEED = 0xdeadbeefcafebabeL;
 
-    private static final Class<?>[] classes = { H2IntHasher.class, IdentityIntHasher.class, Murmur3IntHasher.class,
-            PhiIntHasher.class, Prospector2RoundIntHasher.class, Prospector3RoundIntHasher.class,
-            // SpeckIntHasher.class,
+    private static final Class<?>[] classes = {
+        H2IntHasher.class,
+        IdentityIntHasher.class,
+        Murmur3IntHasher.class,
+        PhiIntHasher.class,
+        Prospector2RoundIntHasher.class,
+        Prospector3RoundIntHasher.class,
+        // SpeckIntHasher.class,
     };
 
     @Test

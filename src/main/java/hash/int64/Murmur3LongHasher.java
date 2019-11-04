@@ -28,4 +28,10 @@ public class Murmur3LongHasher implements LongHasher {
         x ^= x >>> 33;
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new Murmur3LongHasher();
+    }
 }

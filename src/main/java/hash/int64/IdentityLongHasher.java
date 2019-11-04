@@ -12,4 +12,10 @@ public class IdentityLongHasher implements LongHasher {
     public long unhash(long x) {
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new IdentityLongHasher();
+    }
 }

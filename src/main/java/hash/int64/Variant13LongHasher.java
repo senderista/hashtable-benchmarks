@@ -28,4 +28,10 @@ public class Variant13LongHasher implements LongHasher {
         x ^= x >>> 30 ^ x >>> 60;
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new Variant13LongHasher();
+    }
 }

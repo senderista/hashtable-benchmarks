@@ -58,4 +58,10 @@ public class WangLongHasher implements LongHasher {
 
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new WangLongHasher();
+    }
 }

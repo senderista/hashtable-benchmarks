@@ -28,4 +28,10 @@ public class PhiLongHasher implements LongHasher {
         x *= INV_LONG_PHI;
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new PhiLongHasher();
+    }
 }

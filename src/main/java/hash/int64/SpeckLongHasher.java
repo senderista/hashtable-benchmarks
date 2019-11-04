@@ -23,4 +23,9 @@ public class SpeckLongHasher implements LongHasher {
     public long unhash(long x){
         return decryptor.processBlock(x);
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // NYI
+    }
 }

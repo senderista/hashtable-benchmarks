@@ -1,6 +1,6 @@
-package set.int32;
+package set.int64;
 
-import hash.int32.IntHasher;
+import hash.int64.LongHasher;
 
 
 /**
@@ -13,25 +13,25 @@ import hash.int32.IntHasher;
  * on its expected value, nor does it have any effect at all on unsuccessful
  * lookups (note that because we do not use tombstones, we cannot use the
  * maximum insertion probe length to bound the probe length of unsuccessful
- * lookups). The keys (there are no stored values) must be 32-bit integers,
+ * lookups). The keys (there are no stored values) must be 64-bit integers,
  * which are permuted to form the hash codes (i.e., the "hash function"
  * is reversible). This obviates the need to separately store hash codes
  * or rehash the keys to perform operations which use hash codes.
  *
  * @author tdbaker
  */
-public class LCFSIntHashSet extends LPIntHashSet {
-    public static final String NAME = "set.int32.LCFSIntHashSet";
+public class LCFSLongHashSet extends LPLongHashSet {
+    public static final String NAME = "set.int64.LCFSIntHashSet";
 
-    public LCFSIntHashSet(int maxEntries, double loadFactor, IntHasher hasher) {
+    public LCFSLongHashSet(int maxEntries, double loadFactor, LongHasher hasher) {
         super(maxEntries, loadFactor, hasher);
     }
 
-    public LCFSIntHashSet(int maxEntries, double loadFactor) {
+    public LCFSLongHashSet(int maxEntries, double loadFactor) {
         super(maxEntries, loadFactor);
     }
 
-    public LCFSIntHashSet(LCFSIntHashSet other) throws CloneNotSupportedException {
+    public LCFSLongHashSet(LCFSLongHashSet other) throws CloneNotSupportedException {
         super(other);
     }
 
@@ -39,19 +39,19 @@ public class LCFSIntHashSet extends LPIntHashSet {
      * Return deep copy of the table.
      */
     @Override
-    public IntSet cloneSet() throws CloneNotSupportedException {
-        return new LCFSIntHashSet(this);
+    public LongSet cloneSet() throws CloneNotSupportedException {
+        return new LCFSLongHashSet(this);
     }
 
     /**
      * Add an element to the table.
      *
-     * @param element the 32-bit integer to add to the table
+     * @param element the 64-bit integer to add to the table
      * @return {@code false} if {@code element} was already present in the table, {@code true} otherwise
      */
     @Override
-    public boolean add(int element) {
-        int hash = hash(element);
+    public boolean add(long element) {
+        long hash = hash(element);
         int bucket = lookupByHash(hash);
         if (bucket == -1) {
             // table full

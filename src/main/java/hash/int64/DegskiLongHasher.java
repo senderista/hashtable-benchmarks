@@ -28,4 +28,10 @@ public class DegskiLongHasher implements LongHasher {
         x ^= x >>> 32;
         return x;
     }
+
+    @Override
+    public LongHasher cloneHasher() {
+        // stateless
+        return new DegskiLongHasher();
+    }
 }
