@@ -21,7 +21,7 @@ import hash.int64.LongHasher;
  * @author tdbaker
  */
 public class LCFSLongHashSet extends LPLongHashSet {
-    public static final String NAME = "set.int64.LCFSIntHashSet";
+    public static final String NAME = "set.int64.LCFSLongHashSet";
 
     public LCFSLongHashSet(int maxEntries, double loadFactor, LongHasher hasher) {
         super(maxEntries, loadFactor, hasher);

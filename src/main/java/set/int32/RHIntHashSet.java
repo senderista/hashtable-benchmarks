@@ -24,7 +24,7 @@ import hash.int32.IntHasher;
 public class RHIntHashSet extends LPIntHashSet {
     public static final String NAME = "set.int32.RHIntHashSet";
 
-    public RHIntHashSet(int maxEntries, double loadFactor, Int hasher) {
+    public RHIntHashSet(int maxEntries, double loadFactor, IntHasher hasher) {
         super(maxEntries, loadFactor, hasher);
     }
 

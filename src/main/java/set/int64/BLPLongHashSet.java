@@ -18,7 +18,7 @@ import hash.int64.LongHasher;
  * @author tdbaker
  */
 public class BLPLongHashSet extends LPLongHashSet {
-    public static final String NAME = "set.int64.BLPIntHashSet";
+    public static final String NAME = "set.int64.BLPLongHashSet";
 
     public BLPLongHashSet(int maxEntries, double loadFactor, LongHasher hasher) {
         super(maxEntries, loadFactor, hasher);

@@ -22,7 +22,7 @@ import hash.int64.LongHasher;
  * @author tdbaker
  */
 public class RHLongHashSet extends LPLongHashSet {
-    public static final String NAME = "set.int64.RHIntHashSet";
+    public static final String NAME = "set.int64.RHLongHashSet";
 
     public RHLongHashSet(int maxEntries, double loadFactor, LongHasher hasher) {
         super(maxEntries, loadFactor, hasher);
