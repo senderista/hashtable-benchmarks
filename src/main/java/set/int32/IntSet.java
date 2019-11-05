@@ -1,6 +1,11 @@
 package set.int32;
 
-public interface IntSet extends Cloneable {
+/**
+ * A 32-bit hash set.
+ *
+ * @author tdbaker
+ */
+public interface IntSet {
 
    /**
      * Query the number of elements in the table.
@@ -40,6 +45,7 @@ public interface IntSet extends Cloneable {
 
     /**
      * Return deep copy of the table.
+     * @return the cloned table
      */
     public IntSet cloneSet() throws CloneNotSupportedException;
 

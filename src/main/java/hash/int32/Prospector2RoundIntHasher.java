@@ -1,8 +1,12 @@
 package hash.int32;
 
+/**
+ * Based on <a href="https://github.com/skeeto/hash-prospector#two-round-functions">https://github.com/skeeto/hash-prospector#two-round-functions</a>.
+ *
+ * @author tdbaker
+ */
 public class Prospector2RoundIntHasher implements IntHasher {
     public static final String NAME = "hash.int32.Prospector2RoundIntHasher";
-    // https://github.com/skeeto/hash-prospector#two-round-functions
     @Override
     public int hash(int x) {
         if (x == 0) {

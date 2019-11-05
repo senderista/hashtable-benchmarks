@@ -2,8 +2,6 @@ package set.int32;
 
 import hash.int32.IntHasher;
 
-import java.util.Arrays;
-
 
 /**
  * An implementation of a simple linear probing hash table, with
@@ -26,7 +24,7 @@ import java.util.Arrays;
 public class RHIntHashSet extends LPIntHashSet {
     public static final String NAME = "set.int32.RHIntHashSet";
 
-    public RHIntHashSet(int maxEntries, double loadFactor, IntHasher hasher) {
+    public RHIntHashSet(int maxEntries, double loadFactor, Int hasher) {
         super(maxEntries, loadFactor, hasher);
     }
 

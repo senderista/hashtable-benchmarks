@@ -2,8 +2,6 @@ package set.int32;
 
 import hash.int32.IntHasher;
 
-import java.util.Arrays;
-
 
 /**
  * An implementation of <a href="https://doi.org/10.1093/comjnl/17.2.135">

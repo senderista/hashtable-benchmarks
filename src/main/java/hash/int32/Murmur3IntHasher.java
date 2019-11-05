@@ -1,8 +1,12 @@
 package hash.int32;
 
+/**
+ * Implements Murmur3 32-bit finalizer (<a href="https://github.com/aappleby/smhasher/wiki/MurmurHash3">https://github.com/aappleby/smhasher/wiki/MurmurHash3</a>)
+ *
+ * @author tdbaker
+ */
 public class Murmur3IntHasher implements IntHasher {
     public static final String NAME = "hash.int32.Murmur3IntHasher";
-    // Murmur3 32-bit finalizer (https://github.com/aappleby/smhasher/wiki/MurmurHash3)
     @Override
     public int hash(int x) {
         if (x == 0) {

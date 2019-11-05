@@ -1,8 +1,12 @@
 package hash.int32;
 
+/**
+ * Implements hash function from <a href="https://github.com/h2database/h2database">https://github.com/h2database/h2database</a>.
+ *
+ * @author tdbaker
+ */
 public class H2IntHasher implements IntHasher {
     public static final String NAME = "hash.int32.H2IntHasher";
-    // https://github.com/h2database/h2database
     @Override
     public int hash(int x) {
         if (x == 0) {

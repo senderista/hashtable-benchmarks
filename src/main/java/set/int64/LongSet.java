@@ -1,5 +1,10 @@
 package set.int64;
 
+/**
+ * A 64-bit hash set.
+ *
+ * @author tdbaker
+ */
 public interface LongSet {
 
    /**
@@ -37,5 +42,11 @@ public interface LongSet {
      * Remove all elements from the table.
      */
     public void clear();
+
+    /**
+     * Return deep copy of the table.
+     * @return the cloned table
+     */
+    public LongSet cloneSet() throws CloneNotSupportedException;
 
 }

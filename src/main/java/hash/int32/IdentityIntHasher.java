@@ -1,5 +1,10 @@
 package hash.int32;
 
+/**
+ * Implements identity hash function.
+ *
+ * @author tdbaker
+ */
 public class IdentityIntHasher implements IntHasher {
     public static final String NAME = "hash.int32.IdentityIntHasher";
 

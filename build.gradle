@@ -58,3 +58,8 @@ jmh {
     // enable assertions
     jvmArgsAppend = '-ea'
 }
+
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+}

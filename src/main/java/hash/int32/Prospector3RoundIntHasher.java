@@ -1,8 +1,12 @@
 package hash.int32;
 
+/**
+ * Based on <a href="https://github.com/skeeto/hash-prospector#three-round-functions">https://github.com/skeeto/hash-prospector#three-round-functions</a>.
+ *
+ * @author tdbaker
+ */
 public class Prospector3RoundIntHasher implements IntHasher {
     public static final String NAME = "hash.int32.Prospector3RoundIntHasher";
-    // https://github.com/skeeto/hash-prospector#three-round-functions
     @Override
     public int hash(int x) {
         if (x == 0) {

@@ -1,8 +1,12 @@
 package hash.int64;
 
+/**
+ * Variant 13 of Murmur3 64-bit finalizer (<a href="http://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html">http://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html</a>)
+ *
+ * @author tdbaker
+ */
 public class Variant13LongHasher implements LongHasher {
     public static final String NAME = "hash.int64.Variant13LongHasher";
-    // Variant 13 of Murmur3 64-bit finalizer (http://zimbry.blogspot.com/2011/09/better-bit-mixing-improving-on.html)
     @Override
     public long hash(long x) {
         if (x == 0) {
