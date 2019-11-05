@@ -1,13 +1,13 @@
-package set.int32;
+package set.int64;
 
-import hash.int32.IntHasher;
-import hash.int32.PhiIntHasher;
+import hash.int64.LongHasher;
+import hash.int64.PhiLongHasher;
 
 import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.lang.reflect.InvocationTargetException;
 
 import org.openjdk.jmh.annotations.*;
@@ -21,7 +21,7 @@ public class Benchmarks {
 
     // implements Fisher–Yates shuffle over range of array, inexplicably missing
     // from java.util.Arrays
-    private static void shuffleArray(int[] arr, int start, int end) {
+    private static void shuffleArray(long[] arr, int start, int end) {
         Random rnd = ThreadLocalRandom.current();
         for (int i = end - start - 1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
@@ -30,7 +30,7 @@ public class Benchmarks {
             assert start <= randomIndex && randomIndex < end;
             assert start <= currentIndex && currentIndex < end;
             // Simple swap
-            int a = arr[randomIndex];
+            long a = arr[randomIndex];
             arr[randomIndex] = arr[currentIndex];
             arr[currentIndex] = a;
         }
@@ -39,10 +39,10 @@ public class Benchmarks {
     @State(Scope.Benchmark)
     public static class BenchmarkState {
         @Param({
-            LPIntHashSet.NAME,
-            LCFSIntHashSet.NAME,
-            RHIntHashSet.NAME,
-            BLPIntHashSet.NAME,
+            LPLongHashSet.NAME,
+            LCFSLongHashSet.NAME,
+            RHLongHashSet.NAME,
+            BLPLongHashSet.NAME,
         })
         private String setClassName;
 
@@ -65,23 +65,23 @@ public class Benchmarks {
         })
         private double loadFactor;
 
-        public IntSet hashSetTemplate;
-        public int[] newTestData;
-        public int[] oldTestData;
+        public LongSet hashSetTemplate;
+        public long[] newTestData;
+        public long[] oldTestData;
         // we want a random permutation on test data, not an RNG, to avoid duplicate
         // keys, and the Phi hash has quasi-uniform behavior on sequential integers
-        private final IntHasher hasher = new PhiIntHasher();
+        private final LongHasher hasher = new PhiLongHasher();
 
         @Setup(Level.Trial)
         public void initBenchmarkState() throws ClassNotFoundException, InstantiationException, IllegalAccessException,
                 NoSuchMethodException, InvocationTargetException {
             // generate array of random ints, using random permutation rather than RNG
             // to avoid duplicates.
-            int[] testData = IntStream.rangeClosed(1, setSize).map(hasher::hash).toArray();
+            long[] testData = LongStream.rangeClosed(1, setSize).map(hasher::hash).toArray();
             // populate hash set under test with all test data except the last BATCH_SIZE elements,
             // to leave some data free for testing deletions and unsuccessful lookups.
             int templateSize = testData.length - BATCH_SIZE;
-            this.hashSetTemplate = (IntSet) Class.forName(setClassName).getDeclaredConstructor(int.class, double.class)
+            this.hashSetTemplate = (LongSet) Class.forName(setClassName).getDeclaredConstructor(int.class, double.class)
                     .newInstance(setSize, loadFactor);
             for (int i = 0; i < templateSize; ++i) {
                 this.hashSetTemplate.add(testData[i]);
@@ -95,7 +95,7 @@ public class Benchmarks {
 
     @State(Scope.Thread)
     public static class IterationState {
-        public IntSet hashSet;
+        public LongSet hashSet;
         public int testDataIndex;
 
         public int getDataIndex() {

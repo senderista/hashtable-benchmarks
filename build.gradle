@@ -46,8 +46,8 @@ sourceSets {
 
 test {
     useJUnitPlatform()
-    minHeapSize = "1024m"
-    maxHeapSize = "4096m"
+    minHeapSize = "1g"
+    maxHeapSize = "2g"
 }
 
 tasks.withType(JavaCompile) {
@@ -56,7 +56,7 @@ tasks.withType(JavaCompile) {
 
 jmh {
     // enable assertions
-    jvmArgsAppend = '-ea'
+    jvmArgsAppend = '-ea -Xms1g -Xmx8g'
 }
 
 javadoc {
