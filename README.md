@@ -9,6 +9,8 @@ Additionally, I've collected a number of 32- and 64-bit invertible hash function
 
 All implementations are in Java, and are benchmarked using the <a href="http://openjdk.java.net/projects/code-tools/jmh/">JMH</a> benchmark framework.
 
+You can run property-based tests from the repository root directory by typing `gradle test`, or benchmarks by typing `gradle jmh`.
+
 Javadoc (with extensive documentation of the algorithms involved) is here:
 https://senderista.github.io/hashtable-benchmarks/.
 
