@@ -9,9 +9,9 @@ Additionally, I've collected a number of 32- and 64-bit invertible hash function
 
 All implementations are in Java, and are benchmarked using the <a href="http://openjdk.java.net/projects/code-tools/jmh/">JMH</a> benchmark framework. Property-based tests are implemented using the <a href="https://github.com/pholser/junit-quickcheck">junit-quickcheck</a> library.
 
-You can run unit and property-based tests from the repository root directory by typing `gradle test`.
+If you have a [JDK](https://www.oracle.com/java/technologies/downloads/) and [Gradle](https://gradle.org/install/) installed, you can run unit and property-based tests from the repository root directory by typing `gradle test`.
 
-You can run benchmarks from the repository root directory by typing `gradle jmh`.
+If you have a [JDK](https://www.oracle.com/java/technologies/downloads/) and [Gradle](https://gradle.org/install/) installed, you can run benchmarks from the repository root directory by typing `gradle jmh`.
 
 Javadoc (with extensive documentation of the algorithms involved) is here:
 https://senderista.github.io/hashtable-benchmarks/.
